@@ -1,7 +1,10 @@
-import { LoginPage } from './pages/LoginPage';
+import { LoginPage } from './src/pages/LoginPage';
+import { UserContextProvider } from './src/providers/UserContextProvider';
 
 export default function App() {
   return (
-    <LoginPage />
+    <UserContextProvider>
+      <LoginPage />
+    </UserContextProvider>
   );
 }
