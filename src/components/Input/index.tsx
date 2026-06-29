@@ -3,10 +3,11 @@ import { TextDefault } from "../TextDefault";
 import { type LucideIcon } from "lucide-react-native";
 
 import { useState } from "react";
+import { useUserContext } from "../../contexts/UserContext/useUserContext";
 
 type InputProps = {
   label: string;
-  inputType: "text" | "password";
+  inputType: "username" | "password";
   Icon: LucideIcon;
   inputPlaceholder: string;
 }
@@ -14,6 +15,15 @@ type InputProps = {
 export function Input({ label, inputType, Icon, inputPlaceholder }: InputProps) {
 
   const [focusColor, setFocusColor] = useState("#b4b4b4");
+
+  const {user, setUser} = useUserContext();
+
+  function handleChange(text: string) {
+    setUser({
+      ...user,
+      [inputType]: text
+    });
+  }
 
   const styles = StyleSheet.create({
     container: {
@@ -51,6 +61,8 @@ export function Input({ label, inputType, Icon, inputPlaceholder }: InputProps) 
             onBlur={() => { setFocusColor("#b4b4b4") }}
             secureTextEntry={inputType === "password" ? true : false}
             placeholder={inputPlaceholder}
+            value={user[inputType]}
+            onChangeText={handleChange}
           />
         </View>
       </View>

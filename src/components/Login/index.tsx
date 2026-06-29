@@ -9,7 +9,7 @@ export function Login() {
         gap: 20,
       }}
     >
-      <Input inputPlaceholder="Digite seu nome de usuário" Icon={User} label="Nome de usuário:" inputType="text"/>
+      <Input inputPlaceholder="Digite seu nome de usuário" Icon={User} label="Nome de usuário:" inputType="username"/>
       <Input inputPlaceholder="Digite sua senha" Icon={Lock} label="Senha:" inputType="password"/>
     </View>
   );
