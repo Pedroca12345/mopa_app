@@ -6,9 +6,10 @@ export type UserContextProps = {
   setUser: React.Dispatch<SetStateAction<UserModel>>;
 }
 
-const initialState: UserModel = {
+export const initialState: UserModel = {
   password: "",
-  username: ""
+  username: "",
+  token: "",
 }
 
 export const UserContext = createContext<UserContextProps>({
